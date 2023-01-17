@@ -14,10 +14,10 @@ class DealTasks extends Connection{
     }
     public function fetchTach(){
         $conn = $this->connect();
-        $stm = $conn->prepare('SELECT *FROM tasks WHERE');
+        $stm = $conn->prepare('SELECT * FROM `tasks`');
         $stm->execute();
         // $count = $stm->rowCount();
-        $data = $stm->fetch(PDO::FETCH_OBJ);
+        $data = $stm->fetchAll();
         return $data;
     }
 

@@ -67,22 +67,25 @@
             date <i class="bi bi-tags-fill px-2"></i> Tags
         </div>
         <div>
-            <a  id="Add"><i class="bi bi-plus-circle-fill display-4 text-primary"></i></a>
+            <a id="Add"><i class="bi bi-plus-circle-fill display-4 text-primary"></i></a>
         </div>
         <!-- ***********************Pop up Form*************************** -->
         <div class="popup">
             <div class="d-flex justify-content-between px-4 py-2 align-items-center">
                 <h5>Add New Task</h5>
-                <a  id="close"><i class="bi bi-x-circle text-danger display-6"></i></a>
+                <a id="close"><i class="bi bi-x-circle text-danger display-6"></i></a>
             </div>
-            <form class="d-flex flex-column justidy-content-center px-4 " action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
+            <form class="d-flex flex-column justidy-content-center px-4 "
+                action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Name</label>
-                    <input type="text" name="Tname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="Tname" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Description</label>
-                    <input type="text" name="Tdescription" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="Tdescription" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task status</label>
@@ -94,10 +97,11 @@
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Deadline</label>
-                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
                 </div>
 
-                <button name="submit" type="submit" class="btn btn-primary" >Add New Task</button>
+                <button name="submit" type="submit" class="btn btn-primary">Add New Task</button>
             </form>
         </div>
         <!-- ***********************Pop up Form*************************** -->
@@ -109,26 +113,46 @@
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             <!-- ****************First Task************* -->
-            <div class="task">
+            <!-- <div class="task">
                 <h5>Learn js</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
                 <div class="d-flex justify-content-between">
                     <i class="bi bi-pencil-square d-block"></i>
                     <i class="bi bi-trash d-block"></i>
                 </div>
-            </div>
+            </div> -->
             <!-- ****************End First Task************* -->
             <!-- ****************Second Task************* -->
-            <div class="task">
+            <!-- <div class="task">
                 <h5>Learn js</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
                 <div class="d-flex justify-content-between">
                     <i class="bi bi-pencil-square d-block"></i>
                     <i class="bi bi-trash d-block"></i>
                 </div>
-            </div>
+            </div> -->
             <!-- ****************Second Task************* -->
-
+            <!-- ****************dynamic**************** -->
+            <?php
+                foreach($data as $d){
+                // var_dump($d);
+                if($d['4'] == 'TO DO'){
+                
+            ?>
+            <div class="task">
+                <h5><?= $d['name'] ?></h5>
+                <p><?= $d['description'] ?></p>
+                <p class="text-danger"><?= $d['deadline'] ?></p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <?php
+                }
+            };
+            ?>
+            <!-- ****************dynamic**************** -->
         </div>
         <div class="bg-primary doing">
             <div class="d-flex  justify-content-between ">
@@ -136,15 +160,32 @@
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             <!-- ****************First Task************* -->
-            <div class="task">
+            <!-- <div class="task">
                 <h5>Learn js</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
                 <div class="d-flex justify-content-between">
                     <i class="bi bi-pencil-square d-block"></i>
                     <i class="bi bi-trash d-block"></i>
                 </div>
-            </div>
+            </div> -->
             <!-- ****************End First Task************* -->
+            <?php
+                foreach($data as $d){
+                if($d['4'] == 'In Progress'){
+            ?>
+            <div class="task">
+                <h5><?= $d['name'] ?></h5>
+                <p><?= $d['description'] ?></p>
+                <p class="text-danger"><?= $d['deadline'] ?></p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <?php
+                }
+            };
+            ?>
         </div>
         <div class="bg-danger  done">
             <div class="d-flex  justify-content-between ">
@@ -152,15 +193,32 @@
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             <!-- ****************First Task************* -->
-            <div class="task">
+            <!-- <div class="task">
                 <h5>Learn js</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
                 <div class="d-flex justify-content-between">
                     <i class="bi bi-pencil-square d-block"></i>
                     <i class="bi bi-trash d-block"></i>
                 </div>
-            </div>
+            </div> -->
             <!-- ****************End First Task************* -->
+            <?php
+                foreach($data as $d){
+                if($d['4'] == 'Done'){
+            ?>
+            <div class="task">
+                <h5><?= $d['name'] ?></h5>
+                <p><?= $d['description'] ?></p>
+                <p class="text-danger"><?= $d['deadline'] ?></p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <?php
+                }
+            };
+            ?>
         </div>
     </div>
 
