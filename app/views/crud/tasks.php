@@ -47,6 +47,20 @@
             </nav>
         </div>
     </div>
+    <!-- **************************Notification messages******************** -->
+    <div class="text-center">
+
+        <?php
+        
+            if(isset($data['msg'])){
+                echo '<span class="text-danger display-6 text-center">'.$data['msg'].'</span>';
+            }
+            if(isset($data['msg1'])){
+                echo '<span class="text-success display-6 text-center">'.$data['msg1'].'</span>';
+            }
+        ?>
+    </div>
+    <!-- **************************Notification messages******************** -->
     <div class="container content d-flex justify-content-between my-4 align-items-center">
         <div>
             FILTER BY: <i class="bi bi-people-fill px-2"></i> Assigness <i class="bi bi-calendar-range px-2"></i> Due
