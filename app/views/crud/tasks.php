@@ -6,25 +6,154 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>crud</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://localhost/TaskBoard/public/css/style.css">
 </head>
 
 <body>
-    <!-- ******************aside bar***************** -->
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-        aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+    <div class="con" style="background:#91CEDE;">
 
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <p>Try scrolling the rest of the page to see this option in action.</p>
+        <div class="container text-white">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <!-- ******************aside bar***************** -->
+                    <!-- <button class="btn display-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> <i
+                        class="bi bi-list display-5"></i> </button>
+    
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Try scrolling the rest of the page to see this option in action.</p>
+                    </div>
+                </div> -->
+                    <!-- ******************aside bar***************** -->
+                    <img src="http://localhost/TaskBoard/public/images/icon.png" alt="" srcset="">
+                    <h4>TaskManager</h4>
+                    <div>
+                        <i class="bi bi-bell-fill"></i>
+                        <i class="bi bi-search"></i>
+                        <img src="http://localhost/TaskBoard/public/images/user.jpg"
+                            style="width:40px;border-radius: 50%;" alt="" srcset="">
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
-    <!-- ******************aside bar***************** -->
+    <div class="container content d-flex justify-content-between my-4 align-items-center">
+        <div>
+            FILTER BY: <i class="bi bi-people-fill px-2"></i> Assigness <i class="bi bi-calendar-range px-2"></i> Due
+            date <i class="bi bi-tags-fill px-2"></i> Tags
+        </div>
+        <div>
+            <a  id="Add"><i class="bi bi-plus-circle-fill display-4 text-primary"></i></a>
+        </div>
+        <!-- ***********************Pop up Form*************************** -->
+        <div class="popup">
+            <div class="d-flex justify-content-between px-4 py-2 align-items-center">
+                <h5>Add New Task</h5>
+                <a  id="close"><i class="bi bi-x-circle text-danger display-6"></i></a>
+            </div>
+            <form class="d-flex flex-column justidy-content-center px-4 " action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task Name</label>
+                    <input type="text" name="Tname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task Description</label>
+                    <input type="text" name="Tdescription" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task status</label>
+                    <select class="form-select" name="Tstatus" aria-label="Default select example">
+                        <option selected value="TO DO">TO DO</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Deadline</label>
+                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <button name="submit" type="submit" class="btn btn-primary" >Add New Task</button>
+            </form>
+        </div>
+        <!-- ***********************Pop up Form*************************** -->
+    </div>
+    <div class="container  d-flex justify-content-around">
+        <div class="bg-warning to-do">
+            <div class="d-flex  justify-content-between ">
+                <h5 class="bg-danger m-2">TO DO</h5>
+                <i class="bi bi-three-dots m-2"></i>
+            </div>
+            <!-- ****************First Task************* -->
+            <div class="task">
+                <h5>Learn js</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <!-- ****************End First Task************* -->
+            <!-- ****************Second Task************* -->
+            <div class="task">
+                <h5>Learn js</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <!-- ****************Second Task************* -->
+
+        </div>
+        <div class="bg-primary doing">
+            <div class="d-flex  justify-content-between ">
+                <h5 class="bg-danger m-2">In Progress</h5>
+                <i class="bi bi-three-dots m-2"></i>
+            </div>
+            <!-- ****************First Task************* -->
+            <div class="task">
+                <h5>Learn js</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <!-- ****************End First Task************* -->
+        </div>
+        <div class="bg-danger  done">
+            <div class="d-flex  justify-content-between ">
+                <h5 class="bg-success m-2">Done</h5>
+                <i class="bi bi-three-dots m-2"></i>
+            </div>
+            <!-- ****************First Task************* -->
+            <div class="task">
+                <h5>Learn js</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
+                <div class="d-flex justify-content-between">
+                    <i class="bi bi-pencil-square d-block"></i>
+                    <i class="bi bi-trash d-block"></i>
+                </div>
+            </div>
+            <!-- ****************End First Task************* -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+    </script>
+    <script src="http://localhost/TaskBoard/public/JS/logic.js"></script>
 </body>
 
 </html>

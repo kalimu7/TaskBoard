@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.to-do,.doing,.done{
+    /* background-color: red; */
+    height: fit-content;
+    width: 300px;
+    padding: 5px;
+}
+.task{
+    background-color: rgb(228, 247, 247);
+    padding: 1px 3px;
+    margin: 4px 0;
+}
+.popup{
+    width: 400px;
+    height: 410px;
+    background-color: #91CEDE;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    display: none;
+}
+.show {
+    display: block;
+   
+}
