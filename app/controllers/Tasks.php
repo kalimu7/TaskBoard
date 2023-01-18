@@ -43,6 +43,20 @@
             $data = $model->fetchTach();
             $this->view('crud/tasks',$data);
         }
+        public function update(){
+            if(isset($_POST['name'])){
+                $name= $_POST['name'];
+                $desc= $_POST['desc'];
+                $deadline= $_POST['deadline'];
+                $id = $_POST['id'];
+                // echo 'name is '.$name.' description is '.$desc.' deadline is '.$deadline.' and the id '.$id;
+                $model = $this->model('dealTasks');
+                $check = $model->modifier($name,$desc,$deadline,$id);
+                $data = $model->fetchTach();
+                
+                    
+            }
+        }
         
     } 
 

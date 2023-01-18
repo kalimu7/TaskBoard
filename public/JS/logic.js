@@ -5,8 +5,10 @@ let add = document.querySelector('#Add');
 let popup = document.querySelector('.popup');
 let close = document.querySelector('#close');
 let date = document.querySelector('#deadline');
+let date1 = document.querySelector('#deadline1');
 let today = new Date().toISOString().split('T')[0];
 date.setAttribute('min',today);
+date1.setAttribute('min',today);
 
 console.log('hello world');
 add.addEventListener('click',()=>{
@@ -41,6 +43,26 @@ $(document).ready(function(){
         $('#idname').val(name);
         $('#iddesc').val(description);
         $('#deadline1').val(deadline);
+        $('#idd').val(id);
+
+        $('#save').click(function(){
+            var id = $('#idd').val();
+            var name = $('#idname').val();
+            var desc = $('#iddesc').val();
+            var deadline = $('#deadline1').val();
+
+            $.ajax({
+                url : 'http://localhost/TaskBoard/public/Tasks/update',
+                method : 'POST',
+                data : {name : name ,desc : desc , deadline : deadline , id : id},
+                success : function(response){
+                    console.log(response);
+                    $('.update').css("display","none");
+                    location.reload(true);
+
+                }
+            })
+        });
         
     })
 })

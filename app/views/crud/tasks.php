@@ -113,27 +113,7 @@
                 <h5 class="bg-danger m-2">TO DO</h5>
                 <i class="bi bi-three-dots m-2"></i>
             </div>
-            <!-- ****************First Task************* -->
-            <!-- <div class="task">
-                <h5>Learn js</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
-                <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
-                    <i class="bi bi-trash d-block"></i>
-                </div>
-            </div> -->
-            <!-- ****************End First Task************* -->
-            <!-- ****************Second Task************* -->
-            <!-- <div class="task">
-                <h5>Learn js</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
-                <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
-                    <i class="bi bi-trash d-block"></i>
-                </div>
-            </div> -->
-            <!-- ****************Second Task************* -->
-            <!-- ****************dynamic**************** -->
+            
             <?php
                 foreach($data as $d){
                 // var_dump($d);
@@ -160,16 +140,7 @@
                 <h5 class="bg-danger m-2">In Progress</h5>
                 <i class="bi bi-three-dots m-2"></i>
             </div>
-            <!-- ****************First Task************* -->
-            <!-- <div class="task">
-                <h5>Learn js</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
-                <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
-                    <i class="bi bi-trash d-block"></i>
-                </div>
-            </div> -->
-            <!-- ****************End First Task************* -->
+            
             <?php
                 foreach($data as $d){
                 if($d['4'] == 'In Progress'){
@@ -193,16 +164,6 @@
                 <h5 class="bg-success m-2">Done</h5>
                 <i class="bi bi-three-dots m-2"></i>
             </div>
-            <!-- ****************First Task************* -->
-            <!-- <div class="task">
-                <h5>Learn js</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quo?</p>
-                <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
-                    <i class="bi bi-trash d-block"></i>
-                </div>
-            </div> -->
-            <!-- ****************End First Task************* -->
             <?php
                 foreach($data as $d){
                 if($d['4'] == 'Done'){
@@ -228,38 +189,38 @@
                 <h5>Update Your Task</h5>
                 <a id="closeit"><i class="bi bi-x-circle text-danger display-6"></i></a>
             </div>
-            <form class="d-flex flex-column justidy-content-center px-4 "
-                action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
+            <!-- <form class="d-flex flex-column justidy-content-center px-4 "
+                action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST"> -->
+                <input type="hidden" id="idd" name="idtask">
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Name</label>
-                    <input type="text" name="Tname" class="form-control" id="idname"
+                    <input type="text" name="name" class="form-control" id="idname"
                         aria-describedby="emailHelp">
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Description</label>
-                    <input type="text" name="Tdescription" class="form-control" id="iddesc"
+                    <input type="text" name="description" class="form-control" id="iddesc"
                         aria-describedby="emailHelp">
                 </div>
-                <!-- <div class="mb-1">
+                <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task status</label>
                     <select class="form-select" name="Tstatus" aria-label="Default select example">
                         <option selected value="TO DO">TO DO</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>
                     </select>
-                </div> -->
+                </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Deadline</label>
-                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" 
+                    <input id="deadline1" type="Date" name="deadline" class="form-control" 
                         aria-describedby="emailHelp">
                 </div>
-                <input type="date" id="deadline1" >
-                <!-- <p id="deadline1"></p> -->
+                <!-- <input type="date" id="deadline1" > -->
 
-                <button name="update" type="submit" class="btn btn-primary">Update</button>
+                <button  class="btn btn-primary" id="save">Update</button>
             </form>
         </div>
-        <!-- ***********************Pop up Form*************************** -->
+        <!-- ***********************Pop up update End*************************** -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
