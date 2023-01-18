@@ -18,7 +18,7 @@
                     // $model = $this->model('dealTasks');
                     $msg = 'Please fill all the inputs fields';
                     $data = $model->fetchTach();
-                    // $data += ['msg' => '$Please fill all the inputs fields'];
+                    $data += ['msg' => '$Please fill all the inputs fields'];
                     $this->view('crud/tasks',$data);
                     // $this->view('crud/tasks',['msg' => $msg]);
                     exit;
@@ -28,7 +28,7 @@
                 $msg = 'New Task added successfully';
                 // $this->view('crud/tasks',['msg1' => $msg]);
                 $data = $model->fetchTach();
-                // $data += ['msg1' => $msg];
+                $data += ['msg1' => $msg];
                 $this->view('crud/tasks',$data);
             }
         }
