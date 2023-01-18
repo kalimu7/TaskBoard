@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost/TaskBoard/public/css/style.css">
+
 </head>
 
 <body>
@@ -52,11 +53,11 @@
 
         <?php
         
-            if(isset($data['msg'])){
-                echo '<span class="text-danger display-6 text-center">'.$data['msg'].'</span>';
+            if(isset($_SESSION['msg'])){
+                echo '<span class="text-danger display-6 text-center">'.$_SESSION['msg'].'</span>';
             }
-            if(isset($data['msg1'])){
-                echo '<span class="text-success display-6 text-center">'.$data['msg1'].'</span>';
+            if(isset($_SESSION['msg1'])){
+                echo '<span class="text-success display-6 text-center">'.$_SESSION['msg1'].'</span>';
             }
         ?>
     </div>
@@ -139,12 +140,12 @@
                 if($d['4'] == 'TO DO'){
                 
             ?>
-            <div class="task">
-                <h5><?= $d['name'] ?></h5>
-                <p><?= $d['description'] ?></p>
-                <p class="text-danger"><?= $d['deadline'] ?></p>
+            <div class="task" id="<?= $d['id']; ?>">
+                <h5 data-target="name" ><?= $d['name'] ?></h5>
+                <p  data-target="desc" ><?= $d['description'] ?></p>
+                <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
+                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
                     <i class="bi bi-trash d-block"></i>
                 </div>
             </div>
@@ -173,12 +174,12 @@
                 foreach($data as $d){
                 if($d['4'] == 'In Progress'){
             ?>
-            <div class="task">
-                <h5><?= $d['name'] ?></h5>
-                <p><?= $d['description'] ?></p>
-                <p class="text-danger"><?= $d['deadline'] ?></p>
+            <div class="task" id="<?= $d['id']; ?>">
+                <h5 data-target="name" ><?= $d['name'] ?></h5>
+                <p  data-target="desc" ><?= $d['description'] ?></p>
+                <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
+                <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
                     <i class="bi bi-trash d-block"></i>
                 </div>
             </div>
@@ -206,12 +207,12 @@
                 foreach($data as $d){
                 if($d['4'] == 'Done'){
             ?>
-            <div class="task">
-                <h5><?= $d['name'] ?></h5>
-                <p><?= $d['description'] ?></p>
-                <p class="text-danger"><?= $d['deadline'] ?></p>
+            <div class="task" id="<?= $d['id']; ?>">
+                <h5 data-target="name" ><?= $d['name'] ?></h5>
+                <p  data-target="desc" ><?= $d['description'] ?></p>
+                <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
-                    <i class="bi bi-pencil-square d-block"></i>
+                <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
                     <i class="bi bi-trash d-block"></i>
                 </div>
             </div>
@@ -221,10 +222,49 @@
             ?>
         </div>
     </div>
+    <!-- ***********************Pop up update*************************** -->
+    <div class="popup update">
+            <div class="d-flex justify-content-between px-4 py-2 align-items-center">
+                <h5>Update Your Task</h5>
+                <a id="closeit"><i class="bi bi-x-circle text-danger display-6"></i></a>
+            </div>
+            <form class="d-flex flex-column justidy-content-center px-4 "
+                action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task Name</label>
+                    <input type="text" name="Tname" class="form-control" id="idname"
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task Description</label>
+                    <input type="text" name="Tdescription" class="form-control" id="iddesc"
+                        aria-describedby="emailHelp">
+                </div>
+                <!-- <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Task status</label>
+                    <select class="form-select" name="Tstatus" aria-label="Default select example">
+                        <option selected value="TO DO">TO DO</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div> -->
+                <div class="mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Deadline</label>
+                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" 
+                        aria-describedby="emailHelp">
+                </div>
+                <input type="date" id="deadline1" >
+                <!-- <p id="deadline1"></p> -->
 
+                <button name="update" type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        <!-- ***********************Pop up Form*************************** -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="http://localhost/TaskBoard/public/JS/logic.js"></script>
 </body>
 

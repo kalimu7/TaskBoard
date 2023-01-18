@@ -17,19 +17,25 @@
                 if(empty($name) || empty($description) || empty($status) || empty($deadline)){
                     // $model = $this->model('dealTasks');
                     $msg = 'Please fill all the inputs fields';
-                    $data = $model->fetchTach();
-                    $data += ['msg' => '$Please fill all the inputs fields'];
-                    $this->view('crud/tasks',$data);
+                    // $data = $model->fetchTach();
+                    // $data += ['msg' => '$Please fill all the inputs fields'];
+                    // $this->view('crud/tasks',$data);
                     // $this->view('crud/tasks',['msg' => $msg]);
+                    $_SESSION['msg'] = $msg;
+                    $_SESSION['msg1'] = '';
+                    header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
                     exit;
                 }
                 // $model = $this->model('dealTasks');
                 $model->AjouterTache($name,$description,$status,$deadline);
                 $msg = 'New Task added successfully';
+                $_SESSION['msg1'] = $msg;
+                $_SESSION['msg'] = '';
+                header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
                 // $this->view('crud/tasks',['msg1' => $msg]);
-                $data = $model->fetchTach();
-                $data += ['msg1' => $msg];
-                $this->view('crud/tasks',$data);
+                // $data = $model->fetchTach();
+                // $data += ['msg1' => $msg];
+                // $this->view('crud/tasks',$data);
             }
         }
         public function fetch(){
