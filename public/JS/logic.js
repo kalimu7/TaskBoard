@@ -1,6 +1,4 @@
 
-
-
 let add = document.querySelector('#Add');
 let popup = document.querySelector('.popup');
 let close = document.querySelector('#close');
@@ -57,8 +55,10 @@ $(document).ready(function(){
                 data : {name : name ,desc : desc , deadline : deadline , id : id},
                 success : function(response){
                     console.log(response);
+                    $('#'+id).children('h5[data-target=name]').text(name);
+                    $('#'+id).children('p[data-target=desc]').text(desc);
+                    $('#'+id).children('p[data-target=dead]').text(deadline);
                     $('.update').css("display","none");
-                    location.reload(true);
 
                 }
             })

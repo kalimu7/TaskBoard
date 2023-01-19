@@ -121,6 +121,7 @@
                 
             ?>
             <div class="task" id="<?= $d['id']; ?>">
+                <input data-tagret="status" type="hidden" value="TO DO">
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
@@ -146,6 +147,7 @@
                 if($d['4'] == 'In Progress'){
             ?>
             <div class="task" id="<?= $d['id']; ?>">
+                <input data-tagret="status" type="hidden" value="In Progress">
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
@@ -169,6 +171,7 @@
                 if($d['4'] == 'Done'){
             ?>
             <div class="task" id="<?= $d['id']; ?>">
+                 <input data-tagret="status" type="hidden" value="Done">
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
