@@ -121,13 +121,13 @@
                 
             ?>
             <div class="task" id="<?= $d['id']; ?>">
-                <input data-tagret="status" type="hidden" value="TO DO">
+                <p style="display:none;"  data-target="status" ><?= $d['4']; ?></p>
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
                     <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
-                    <i class="bi bi-trash d-block"></i>
+                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i class="bi bi-trash d-block"></i> </a>
                 </div>
             </div>
             <?php
@@ -147,13 +147,14 @@
                 if($d['4'] == 'In Progress'){
             ?>
             <div class="task" id="<?= $d['id']; ?>">
-                <input data-tagret="status" type="hidden" value="In Progress">
+                
+                <p style="display:none;"  data-target="status" ><?= $d['4']; ?></p>
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
-                <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
-                    <i class="bi bi-trash d-block"></i>
+                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
+                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i class="bi bi-trash d-block"></i> </a>
                 </div>
             </div>
             <?php
@@ -171,13 +172,13 @@
                 if($d['4'] == 'Done'){
             ?>
             <div class="task" id="<?= $d['id']; ?>">
-                 <input data-tagret="status" type="hidden" value="Done">
+                <p  style="display:none;"  data-target="status" ><?= $d['4']; ?></p>
                 <h5 data-target="name" ><?= $d['name'] ?></h5>
                 <p  data-target="desc" ><?= $d['description'] ?></p>
                 <p  data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
-                <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
-                    <i class="bi bi-trash d-block"></i>
+                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i class="bi bi-pencil-square d-block"></i></a>
+                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i class="bi bi-trash d-block"></i> </a>
                 </div>
             </div>
             <?php
@@ -207,7 +208,7 @@
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task status</label>
-                    <select class="form-select" name="Tstatus" aria-label="Default select example">
+                    <select id="selectstatus" class="form-select" name="Tstatus" aria-label="Default select example">
                         <option selected value="TO DO">TO DO</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>

@@ -20,16 +20,24 @@ class DealTasks extends Connection{
         $data = $stm->fetchAll();
         return $data;
     }
-    public function modifier($name,$description,$deadline,$id){
+    public function modifier($name,$description,$deadline,$status,$id){
         $conn = $this->connect();
-        $stm = $conn->prepare('UPDATE tasks SET  name = :name , description = :desc , deadline =  :deadline WHERE id = :id');
+        $stm = $conn->prepare('UPDATE tasks SET  name = :name , description = :desc , deadline =  :deadline , status = :status WHERE id = :id');
         $stm->BindParam(':name',$name);
         $stm->BindParam(':desc',$description);
         $stm->BindParam(':deadline',$deadline);
+        $stm->BindParam(':status',$status);
         $stm->BindParam(':id',$id);
         
         $stm->execute();
            
+        
+    }
+    public function remove($id){
+        $conn = $this->connect();
+        $stm = $conn->prepare('DELETE FROM tasks WHERE id = :id ');
+        $stm->BindParam(':id',$id);
+        $stm->execute();
         
     }
 

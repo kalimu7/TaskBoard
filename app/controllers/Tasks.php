@@ -48,14 +48,21 @@
                 $name= $_POST['name'];
                 $desc= $_POST['desc'];
                 $deadline= $_POST['deadline'];
+                $status = $_POST['sts'];
                 $id = $_POST['id'];
                 // echo 'name is '.$name.' description is '.$desc.' deadline is '.$deadline.' and the id '.$id;
                 $model = $this->model('dealTasks');
-                $check = $model->modifier($name,$desc,$deadline,$id);
+                $check = $model->modifier($name,$desc,$deadline,$status,$id);
                 $data = $model->fetchTach();
                 
                     
             }
+        }
+        public function delete($id){
+
+            $model = $this->model('DealTasks');
+            $model->remove($id);
+            header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
         }
         
     } 

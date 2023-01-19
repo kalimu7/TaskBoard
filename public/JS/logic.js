@@ -36,29 +36,33 @@ $(document).ready(function(){
         var name = $('#'+id).children('h5[data-target=name]').text();
         var description = $('#'+id).children('p[data-target=desc]').text();
         var deadline = $('#'+id).children('p[data-target=dead]').text();
-        // console.log(name);
-        console.log(deadline);
+        var status = $('#'+id).children('p[data-target=status]').text();
+        console.log(status);
+        // console.log(deadline);
         $('#idname').val(name);
         $('#iddesc').val(description);
         $('#deadline1').val(deadline);
         $('#idd').val(id);
-
+        $('#selectstatus').val(status);
         $('#save').click(function(){
             var id = $('#idd').val();
             var name = $('#idname').val();
             var desc = $('#iddesc').val();
             var deadline = $('#deadline1').val();
+            var sts = $('#selectstatus').val();
 
             $.ajax({
                 url : 'http://localhost/TaskBoard/public/Tasks/update',
                 method : 'POST',
-                data : {name : name ,desc : desc , deadline : deadline , id : id},
+                data : {name : name ,desc : desc , deadline : deadline , id : id,sts:sts},
                 success : function(response){
                     console.log(response);
-                    $('#'+id).children('h5[data-target=name]').text(name);
-                    $('#'+id).children('p[data-target=desc]').text(desc);
-                    $('#'+id).children('p[data-target=dead]').text(deadline);
-                    $('.update').css("display","none");
+                    location.reload(true);
+                    // $('#'+id).children('h5[data-target=name]').text(name);
+                    // $('#'+id).children('p[data-target=desc]').text(desc);
+                    // $('#'+id).children('p[data-target=dead]').text(deadline);
+                    // $('#'+id).children('p[data-target=status]').text(sts);
+                    // $('.update').css("display","none");
 
                 }
             })
