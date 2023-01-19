@@ -107,10 +107,11 @@
         </div>
         <!-- ***********************Pop up Form*************************** -->
     </div>
-    <div class="container  d-flex justify-content-around">
+    <div class="container  d-flex justify-content-around ">
         <div class="bg-warning to-do">
             <div class="d-flex  justify-content-between ">
-                <h5 class="bg-danger m-2">TO DO</h5>
+                <h5 class="bg-danger m-2">TO DO</h5> 
+                <p id="count" class="m-2  text-white">Number</p>                   
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             
@@ -139,6 +140,7 @@
         <div class="bg-primary doing">
             <div class="d-flex  justify-content-between ">
                 <h5 class="bg-danger m-2">In Progress</h5>
+                <p id="count" class="m-2  text-white">Number</p>                   
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             
@@ -165,6 +167,7 @@
         <div class="bg-danger  done">
             <div class="d-flex  justify-content-between ">
                 <h5 class="bg-success m-2">Done</h5>
+                <p id="count" class="m-2  text-white">Number</p>                   
                 <i class="bi bi-three-dots m-2"></i>
             </div>
             <?php

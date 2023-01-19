@@ -28,17 +28,13 @@ class DealTasks extends Connection{
         $stm->BindParam(':deadline',$deadline);
         $stm->BindParam(':status',$status);
         $stm->BindParam(':id',$id);
-        
         $stm->execute();
-           
-        
     }
     public function remove($id){
         $conn = $this->connect();
         $stm = $conn->prepare('DELETE FROM tasks WHERE id = :id ');
         $stm->BindParam(':id',$id);
         $stm->execute();
-        
     }
 
 }

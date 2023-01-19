@@ -10,7 +10,7 @@
         }
         public function signup(){
             if(isset($_POST['register'])){
-                $check = $this->model('Users');
+                $model = $this->model('Users');
                
                 $name = $_POST['Name']; 
                 $email = $_POST['Email']; 
@@ -20,9 +20,16 @@
                     $this->view('Home/signup',['msg' => $msg]);
                     exit;
                 }
-                $password_hashed = Password_hash($password,PASSWORD_BCRYPT);
-                $check->register($name,$email,$password_hashed);
-                header('Location:http://localhost/TaskBoard/public/User/login');
+                $check = $model->validate($email);
+                if($check){
+                    $password_hashed = Password_hash($password,PASSWORD_BCRYPT);
+                    
+                    $model->register($name,$email,$password_hashed);
+                    header('Location:http://localhost/TaskBoard/public/User/login');
+                }else{
+                    $msg = 'this is user already has an account';
+                    $this->view('Home/signup',['msg' => $msg]);
+                }
                 
             }
         }

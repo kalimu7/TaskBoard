@@ -59,7 +59,6 @@
             }
         }
         public function delete($id){
-
             $model = $this->model('DealTasks');
             $model->remove($id);
             header('Location:http://localhost/TaskBoard/public/Tasks/fetch');

@@ -1,6 +1,20 @@
 <?php
     require_once '../app/models/connection.php';
     class Users extends Connection{
+        public function validate($email){
+
+          $conn = $this->connect();
+          $stm = $conn->prepare('SELECT *FROM  user WHERE email = :email'); 
+          $stm->BindParam(':email',$email);
+          $stm->execute();
+          $data = $stm->fetchAll();
+          if($data){
+            return False;
+          }else{
+            return true;
+          }
+
+        }
         public function register($name,$email,$password){
 
           $conn = $this->connect();

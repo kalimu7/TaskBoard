@@ -70,4 +70,16 @@ $(document).ready(function(){
         
     })
 })
+// **********************Counter****************
+let affiche = document.querySelectorAll('#count');
+let countto = document.querySelector('.to-do');
+let countdoing = document.querySelector('.doing');
+let countdone = document.querySelector('.done');
+affiche[0].textContent = (countto.childElementCount - 1);
+affiche[1].textContent = (countdoing.childElementCount - 1);
+affiche[2].textContent = (countdone.childElementCount - 1);
+
+
+
+// **********************Counter****************
 
