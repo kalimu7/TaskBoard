@@ -3,13 +3,14 @@
 require_once '../app/models/connection.php';
 class DealTasks extends Connection{
 
-    public function AjouterTache($name,$description,$status,$deadline){
+    public function AjouterTache($name,$description,$status,$deadline,$userid){
         $conn = $this->connect();
-        $stm = $conn->prepare('INSERT INTO `tasks`(`name`, `description`, `deadline`, `status`) VALUES ( :name,:description ,:deadline ,:status )');
+        $stm = $conn->prepare('INSERT INTO `tasks`(`name`, `description`, `deadline`, `status`,`userid`) VALUES ( :name,:description ,:deadline ,:status , :userid)');
         $stm->BindParam(':name',$name);
         $stm->BindParam(':description',$description);
         $stm->BindParam(':status',$status);
         $stm->BindParam(':deadline',$deadline);
+        $stm->BindParam(':userid',$userid);
         $stm->execute();
     }
     public function fetchTach(){

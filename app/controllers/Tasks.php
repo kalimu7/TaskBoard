@@ -13,7 +13,6 @@
                 $status = $_POST['Tstatus'];
                 $deadline = $_POST['Tdeadline'];
                 $model = $this->model('dealTasks');
-
                 if(empty($name) || empty($description) || empty($status) || empty($deadline)){
                     // $model = $this->model('dealTasks');
                     $msg = 'Please fill all the inputs fields';
@@ -27,7 +26,8 @@
                     exit;
                 }
                 // $model = $this->model('dealTasks');
-                $model->AjouterTache($name,$description,$status,$deadline);
+                $userid = $_SESSION['id_user'];
+                $model->AjouterTache($name,$description,$status,$deadline,$userid);
                 $msg = 'New Task added successfully';
                 $_SESSION['msg1'] = $msg;
                 $_SESSION['msg'] = '';

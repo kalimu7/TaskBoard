@@ -50,12 +50,17 @@
                     $_SESSION['id_user'] = $data->id;
                     $_SESSION['name'] = $data->name;
                     $_SESSION['email'] = $data->email;
-                    header('Location:http://localhost/Hotel/public/User/tasks');
+                    header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
                 }else{
                     $msg = 'there is something doesnt match';
                     $this->view('Home/login',['msg' => $msg]);
                 }
             }
+        }
+        public function out(){
+            $model = $this->model('logout');
+            $model->Logout();
+            header('Location:http://localhost/TaskBoard/public/user/sign');
         }
         
     }
