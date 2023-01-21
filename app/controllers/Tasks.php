@@ -39,8 +39,9 @@
             }
         }
         public function fetch(){
+            $iduser = $_SESSION['id_user'];
             $model = $this->model('dealTasks');
-            $data = $model->fetchTach();
+            $data = $model->fetchTach($iduser);
             $this->view('crud/tasks',$data);
         }
         public function update(){

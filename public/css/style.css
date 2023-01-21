@@ -27,5 +27,20 @@
 }
 .show {
     display: block;
-   
+}
+.hide{
+    display: none;
+}
+.drop{
+    width: 100px;
+    height: 50px;
+    top: 63px;
+    right: 12px;
+    background-color: rgb(62, 38, 123);
+    z-index: 10;
+    position: absolute;
+}
+#logout{
+    text-decoration: none;
+    color: white;
 }

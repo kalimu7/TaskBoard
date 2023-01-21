@@ -13,9 +13,11 @@ class DealTasks extends Connection{
         $stm->BindParam(':userid',$userid);
         $stm->execute();
     }
-    public function fetchTach(){
+    public function fetchTach($iduser){
+         
         $conn = $this->connect();
-        $stm = $conn->prepare('SELECT * FROM `tasks` ORDER BY deadline ASC');
+        $stm = $conn->prepare('SELECT  *FROM `tasks` WHERE userid = :iduser ORDER BY deadline ASC ');
+        $stm->BindParam(':iduser',$iduser);
         $stm->execute();
         // $count = $stm->rowCount();
         $data = $stm->fetchAll();

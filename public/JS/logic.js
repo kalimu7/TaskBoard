@@ -81,5 +81,10 @@ affiche[2].textContent = (countdone.childElementCount - 1);
 
 
 
-// **********************Counter****************
+// **********************image drop****************
+const drp = document.querySelector('#imgdrop');
+const drop = document.querySelector('.drop');
+drp.addEventListener('click',()=>{
+    drop.classList.toggle('hide');
+});
 
