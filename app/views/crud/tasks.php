@@ -42,12 +42,14 @@
                     <h4>TaskManager</h4>
                     
                     <div>
-                        <i class="bi bi-bell-fill mx-2"></i>
-                        <i class="bi bi-search mx-2"></i>
+                        <i class="bi bi-bell-fill mx-2" ></i>
+                        <input  type="text" id="search" placeholder="Search by name" >
+                        <i class="bi bi-search mx-2" id="searchbtn"></i>
                         <img  src="http://localhost/TaskBoard/public/images/user.jpg"
                             style="width:40px;border-radius: 50%;"  alt="" srcset="" id="imgdrop">
+                        
                             <div class="drop">
-                                <a href="" id="logout">Log out</a>
+                                <a href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
                             </div>
                         </div>
                 </div>
@@ -129,7 +131,7 @@
             ?>
             <div class="task" id="<?= $d['id']; ?>">
                 <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 data-target="name"><?= $d['name'] ?></h5>
+                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
                 <p data-target="desc"><?= $d['description'] ?></p>
                 <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
@@ -147,7 +149,7 @@
         </div>
         <div class="bg-primary doing">
             <div class="d-flex  justify-content-between ">
-                <h5 class="bg-danger m-2">In Progress</h5>
+                <h5  class="bg-danger m-2">In Progress</h5>
                 <p id="count" class="m-2  text-white">Number</p>
                 <i class="bi bi-three-dots m-2"></i>
             </div>
@@ -159,7 +161,7 @@
             <div class="task" id="<?= $d['id']; ?>">
 
                 <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 data-target="name"><?= $d['name'] ?></h5>
+                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
                 <p data-target="desc"><?= $d['description'] ?></p>
                 <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">
@@ -186,7 +188,7 @@
             ?>
             <div class="task" id="<?= $d['id']; ?>">
                 <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 data-target="name"><?= $d['name'] ?></h5>
+                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
                 <p data-target="desc"><?= $d['description'] ?></p>
                 <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
                 <div class="d-flex justify-content-between">

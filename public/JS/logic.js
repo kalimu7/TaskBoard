@@ -87,4 +87,28 @@ const drop = document.querySelector('.drop');
 drp.addEventListener('click',()=>{
     drop.classList.toggle('hide');
 });
+// ******************Search btn************************
+
+var seachinput = document.querySelector('#search');
+const seachicon = document.querySelector('#searchbtn');
+seachicon.addEventListener('click',()=>{
+    seachinput.style.display="inline-block";
+})
+
+// ******************Search logic************************
+let Names = document.querySelectorAll('.Names');
+seachinput.addEventListener('input',(e)=>{
+    let filter = e.target.value;
+    filter = filter.toUpperCase();
+    for(let i = 0;i<Names.length;i++){
+        let a = Names[i].innerHTML || Names[i].textContent;
+        a = a.toUpperCase();
+        if(a.indexOf(filter) > -1){
+            Names[i].parentElement.style.display = "block";
+        }else{
+            Names[i].parentElement.style.display = "none";
+        }
+    }
+})
+// ********************Search done************************
 

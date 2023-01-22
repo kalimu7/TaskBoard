@@ -26,7 +26,10 @@
     display: none;
 }
 .show {
-    display: block;
+    display: inline-block;
+}
+#search{
+    display: none;
 }
 .hide{
     display: none;
