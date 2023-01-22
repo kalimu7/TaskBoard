@@ -15,8 +15,10 @@
     margin: 4px 0;
 }
 .popup{
+    margin-top: 10px;
     width: 400px;
-    height: 410px;
+    height: 450px;
+    overflow-y: scroll;
     background-color: #91CEDE;
     position: fixed;
     top: 50%;

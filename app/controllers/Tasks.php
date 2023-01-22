@@ -8,26 +8,36 @@
         }
         public function AddTasks(){
             if(isset($_POST['submit'])){
-                $name = $_POST['Tname'];
-                $description = $_POST['Tdescription'];
-                $status = $_POST['Tstatus'];
-                $deadline = $_POST['Tdeadline'];
+                $i = $_POST['Tnumbers']; 
+                // die(print($i));
+                $name = $_POST['Tname1'];
+                $description = $_POST['Tdescription1'];
+                $status = $_POST['Tstatus1'];
+                $deadline = $_POST['Tdeadline1'];
                 $model = $this->model('dealTasks');
                 if(empty($name) || empty($description) || empty($status) || empty($deadline)){
-                    // $model = $this->model('dealTasks');
-                    $msg = 'Please fill all the inputs fields';
-                    // $data = $model->fetchTach();
-                    // $data += ['msg' => '$Please fill all the inputs fields'];
-                    // $this->view('crud/tasks',$data);
-                    // $this->view('crud/tasks',['msg' => $msg]);
+                    $msg = 'Please fill all the inputs fields';  
                     $_SESSION['msg'] = $msg;
                     $_SESSION['msg1'] = '';
                     header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
                     exit;
                 }
+                if($i == 1){
+                    $userid = $_SESSION['id_user'];
+                    $model->AjouterTache($name,$description,$status,$deadline,$userid);
+                }else{
+                    $j = 1;
+                    while($j<=$i){
+                        $userid = $_SESSION['id_user'];
+                        $name = $_POST['Tname'.$j];
+                        $description = $_POST['Tdescription'.$j];
+                        $status = $_POST['Tstatus'.$j];
+                        $deadline = $_POST['Tdeadline'.$j];
+                        $model->AjouterTache($name,$description,$status,$deadline,$userid);
+                        $j++;
+                    }
+                }
                 // $model = $this->model('dealTasks');
-                $userid = $_SESSION['id_user'];
-                $model->AjouterTache($name,$description,$status,$deadline,$userid);
                 $msg = 'New Task added successfully';
                 $_SESSION['msg1'] = $msg;
                 $_SESSION['msg'] = '';

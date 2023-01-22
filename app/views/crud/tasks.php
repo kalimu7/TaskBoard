@@ -22,22 +22,6 @@
         <div class="container text-white">
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <!-- ******************aside bar***************** -->
-                    <!-- <button class="btn display-1" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> <i
-                        class="bi bi-list display-5"></i> </button>
-    
-                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                    aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div> -->
-                    <!-- ******************aside bar***************** -->
                     <img src="http://localhost/TaskBoard/public/images/icon.png" alt="" srcset="">
                     <h4>TaskManager</h4>
                     
@@ -87,18 +71,22 @@
             <form class="d-flex flex-column justidy-content-center px-4 "
                 action="http://localhost/TaskBoard/public/Tasks/AddTasks" method="POST">
                 <div class="mb-1">
+                    <label for="">Tasks Number</label>
+                    <input name="Tnumbers" type="number" id="tasknumber" min="1" value="1">
+                </div>
+                <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Name</label>
-                    <input type="text" name="Tname" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="Tname1" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task Description</label>
-                    <input type="text" name="Tdescription" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="Tdescription1" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Task status</label>
-                    <select class="form-select" name="Tstatus" aria-label="Default select example">
+                    <select class="form-select" name="Tstatus1" aria-label="Default select example">
                         <option selected value="TO DO">TO DO</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>
@@ -106,8 +94,12 @@
                 </div>
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Deadline</label>
-                    <input id="deadline" type="Date" name="Tdeadline" class="form-control" id="exampleInputEmail1"
+                    <input id="deadline" type="Date" name="Tdeadline1" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
+                </div>
+
+                <div class="inputholder">
+
                 </div>
 
                 <button name="submit" type="submit" class="btn btn-primary">Add New Task</button>
