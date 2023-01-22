@@ -29,11 +29,11 @@
                         <i class="bi bi-bell-fill mx-2" ></i>
                         <input  type="text" id="search" placeholder="Search by name" >
                         <i class="bi bi-search mx-2" id="searchbtn"></i>
-                        <img  src="http://localhost/TaskBoard/public/images/user.jpg"
-                            style="width:40px;border-radius: 50%;"  alt="" srcset="" id="imgdrop">
+                        <img  src="http://localhost/TaskBoard/public/images/user.jpeg"
+                            style="width:39px;height:39px;border-radius: 60%;"  alt="" srcset="" id="imgdrop">
                         
-                            <div class="drop">
-                                <a href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
+                            <div class="drop text-center">
+                                <a class="text-right" href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
                             </div>
                         </div>
                 </div>
@@ -107,8 +107,8 @@
         </div>
         <!-- ***********************Pop up Form*************************** -->
     </div>
-    <div class="container  d-flex justify-content-around ">
-        <div class="bg-warning to-do">
+    <div class="container  flex-xs-column d-flex justify-content-around ">
+        <div class="bg-warning to-do ">
             <div class="d-flex  justify-content-between ">
                 <h5 class="bg-danger m-2">TO DO</h5>
                 <p id="count" class="m-2  text-white">Number</p>
@@ -139,7 +139,7 @@
             ?>
             <!-- ****************dynamic**************** -->
         </div>
-        <div class="bg-primary doing">
+        <div class="bg-primary doing ">
             <div class="d-flex  justify-content-between ">
                 <h5  class="bg-danger m-2">In Progress</h5>
                 <p id="count" class="m-2  text-white">Number</p>
@@ -168,9 +168,9 @@
             };
             ?>
         </div>
-        <div class="bg-danger  done">
+        <div class="bg-success  done ">
             <div class="d-flex  justify-content-between ">
-                <h5 class="bg-success m-2">Done</h5>
+                <h5 class="bg-danger m-2">Done</h5>
                 <p id="count" class="m-2  text-white">Number</p>
                 <i class="bi bi-three-dots m-2"></i>
             </div>

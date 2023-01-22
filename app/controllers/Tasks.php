@@ -27,12 +27,19 @@
                     $model->AjouterTache($name,$description,$status,$deadline,$userid);
                 }else{
                     $j = 1;
-                    while($j<=$i){
+                    while($j <= $i){
                         $userid = $_SESSION['id_user'];
                         $name = $_POST['Tname'.$j];
                         $description = $_POST['Tdescription'.$j];
                         $status = $_POST['Tstatus'.$j];
                         $deadline = $_POST['Tdeadline'.$j];
+                        if(empty($name) || empty($description) || empty($status) || empty($deadline)){
+                            $msg = 'Please fill all the inputs fields of '.$j.' task';  
+                            $_SESSION['msg'] = $msg;
+                            $_SESSION['msg1'] = '';
+                            header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
+                            exit;
+                        }
                         $model->AjouterTache($name,$description,$status,$deadline,$userid);
                         $j++;
                     }

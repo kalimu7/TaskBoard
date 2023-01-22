@@ -37,15 +37,21 @@
     display: none;
 }
 .drop{
+    border-radius: 3px;
     width: 100px;
     height: 50px;
     top: 63px;
     right: 12px;
-    background-color: rgb(62, 38, 123);
+    background-color: #0275d8;
     z-index: 10;
     position: absolute;
 }
 #logout{
     text-decoration: none;
     color: white;
+}
+#logout:hover{
+    background-color: white;
+    width: 100px;
+    color: #0275d8;
 }
