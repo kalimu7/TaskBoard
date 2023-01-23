@@ -7,11 +7,21 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://localhost/TaskBoard/public/css/style.css">
+
 </head>
 <body>
     <!-- *************************navbar************************ -->
-    
-    <!-- *************************navbar************************ -->
+    <nav class="navbar bg-body-tertiary" style="background:#91CEDE;">
+                <div class="container-fluid">
+                    <img src="http://localhost/TaskBoard/public/images/icon.png" alt="" srcset="">
+                    <h4 class="text-white">TaskManager</h4>
+                    <div>
+                        <i class="bi bi-bell-fill mx-2" ></i>
+                    </div>
+                </div>
+            </nav>
+    <!-- *************************End of navbar************************ -->
     <!-- ******************************content****************** -->
     <section >
         <div class="container py-2">
@@ -50,12 +60,11 @@
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" name="login" type="submit">Login</button>
+                                            <button class="btn btn-primary btn-lg btn-block" name="login" type="submit">Login</button>
                                         </div>
                                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
                                                 href="http://localhost/TaskBoard/public/User/sign" style="color: #393f81;">Register here</a></p>                                        
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -65,5 +74,6 @@
         </div>
     </section>
     <!-- ******************************end content****************** -->
+    <script src="http://localhost/TaskBoard/public/JS/validation.js"></script>
 </body>
 </html>

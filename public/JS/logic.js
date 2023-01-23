@@ -85,16 +85,15 @@ affiche[2].textContent = (countdone.childElementCount - 1);
 const drp = document.querySelector('#imgdrop');
 const drop = document.querySelector('.drop');
 drp.addEventListener('click', () => {
-    drop.classList.toggle('hide');
+    // drop.classList.toggle('hide');
+    if(drop.style.display === "none" || drop.style.display === ""){
+        drop.style.display = "block"
+    }else{
+        drop.style.display = "none"
+    }
 });
 // ******************Search btn************************
-
 var seachinput = document.querySelector('#search');
-const seachicon = document.querySelector('#searchbtn');
-seachicon.addEventListener('click', () => {
-    seachinput.style.display = "inline-block";
-})
-
 // ******************Search logic************************
 let Names = document.querySelectorAll('.Names');
 seachinput.addEventListener('input', (e) => {

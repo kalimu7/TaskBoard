@@ -30,11 +30,10 @@
 .show {
     display: inline-block;
 }
-#search{
-    display: none;
-}
+
+
 .hide{
-    display: none;
+    display: block;
 }
 .drop{
     border-radius: 3px;
@@ -45,6 +44,7 @@
     background-color: #0275d8;
     z-index: 10;
     position: absolute;
+    display: none;
 }
 #logout{
     text-decoration: none;
@@ -57,9 +57,3 @@
      width: 100%; 
      color: #0275d8; 
  } 
- @media screen and (max-width : 534px) {
-    .sr{
-        display: none;
-    }
-
- }

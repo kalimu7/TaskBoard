@@ -26,10 +26,9 @@
                     <h4>TaskManager</h4>
                     <div>
                         <i class="bi bi-bell-fill mx-2" ></i>
-                        <input  type="text" id="search" placeholder="Search by name" class="sr"  >
-                        <i class="bi bi-search mx-2 sr" id="searchbtn"></i>
+                        
                         <img  src="http://localhost/TaskBoard/public/images/user.jpeg"
-                            style="width:39px;height:39px;border-radius: 60%;"  alt="" srcset="" id="imgdrop">
+                            style="width:39px;height:39px;border-radius: 60%;cursor:pointer;"  alt="" srcset="" id="imgdrop">
                             <div class="drop text-center">
                                 <a  href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
                                 <a  href="http://localhost/TaskBoard/public/user/out" id="logout">Profile</a>
@@ -52,10 +51,10 @@
             }
         ?>
     </div>
-    <!-- **************************Notification messages******************** -->
+    <!-- **************************End of Notification messages******************** -->
     <div class="d-flex justify-content-center my-2">
-            <input  type="text" id="search" placeholder="Search by name" class="sr1" >
-            <i class="bi bi-search mx-2 sr1" id="searchbtn" ></i>
+        <input  type="text" id="search" placeholder="Search by name" class="sr"  >
+        <i class="bi bi-search mx-2 sr" id="searchbtn"></i>
     </div>
     <div class="container content d-flex justify-content-between my-4 align-items-center">
         
