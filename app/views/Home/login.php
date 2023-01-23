@@ -13,9 +13,9 @@
     
     <!-- *************************navbar************************ -->
     <!-- ******************************content****************** -->
-    <section  style="margin-top:100px;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+    <section >
+        <div class="container py-2">
+            <div class="row d-flex justify-content-center align-items-center h-50">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
@@ -29,7 +29,7 @@
                                     <form method="POST" action="http://localhost/TaskBoard/public/User/loginin">
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
-                                            <span class="h1 fw-bold mb-0"><img src="http://localhost/Hotel/public/assets/logo.png" height="100px"; alt="" srcset=""></span>
+                                            <span class="h1 fw-bold mb-0"><img src="http://localhost/TaskBoard/public/images/icon.png"  alt="" srcset=""></span>
                                         </div>
 
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
@@ -52,12 +52,8 @@
                                         <div class="pt-1 mb-4">
                                             <button class="btn btn-dark btn-lg btn-block" name="login" type="submit">Login</button>
                                         </div>
-
-                                        <a class="small text-muted" href="#!">Forgot password?</a>
                                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
-                                                href="http://localhost/TaskBoard/public/User/sign" style="color: #393f81;">Register here</a></p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
-                                        <a href="#!" class="small text-muted">Privacy policy</a>
+                                                href="http://localhost/TaskBoard/public/User/sign" style="color: #393f81;">Register here</a></p>                                        
                                     </form>
 
                                 </div>

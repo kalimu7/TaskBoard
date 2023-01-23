@@ -39,7 +39,7 @@
 .drop{
     border-radius: 3px;
     width: 100px;
-    height: 50px;
+    height: 48px;
     top: 63px;
     right: 12px;
     background-color: #0275d8;
@@ -49,9 +49,17 @@
 #logout{
     text-decoration: none;
     color: white;
+    width: 100%;
+    display: block;
 }
 #logout:hover{
     background-color: white;
-    width: 100px;
-    color: #0275d8;
-}
+     width: 100%; 
+     color: #0275d8; 
+ } 
+ @media screen and (max-width : 534px) {
+    .sr{
+        display: none;
+    }
+
+ }

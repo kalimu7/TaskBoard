@@ -24,16 +24,15 @@
                 <div class="container-fluid">
                     <img src="http://localhost/TaskBoard/public/images/icon.png" alt="" srcset="">
                     <h4>TaskManager</h4>
-                    
                     <div>
                         <i class="bi bi-bell-fill mx-2" ></i>
-                        <input  type="text" id="search" placeholder="Search by name" >
-                        <i class="bi bi-search mx-2" id="searchbtn"></i>
+                        <input  type="text" id="search" placeholder="Search by name" class="sr"  >
+                        <i class="bi bi-search mx-2 sr" id="searchbtn"></i>
                         <img  src="http://localhost/TaskBoard/public/images/user.jpeg"
                             style="width:39px;height:39px;border-radius: 60%;"  alt="" srcset="" id="imgdrop">
-                        
                             <div class="drop text-center">
-                                <a class="text-right" href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
+                                <a  href="http://localhost/TaskBoard/public/user/out" id="logout">Log out</a>
+                                <a  href="http://localhost/TaskBoard/public/user/out" id="logout">Profile</a>
                             </div>
                         </div>
                 </div>
@@ -54,9 +53,14 @@
         ?>
     </div>
     <!-- **************************Notification messages******************** -->
+    <div class="d-flex justify-content-center my-2">
+            <input  type="text" id="search" placeholder="Search by name" class="sr1" >
+            <i class="bi bi-search mx-2 sr1" id="searchbtn" ></i>
+    </div>
     <div class="container content d-flex justify-content-between my-4 align-items-center">
+        
         <div>
-            FILTER BY: <i class="bi bi-people-fill px-2"></i> Assigness <i class="bi bi-calendar-range px-2"></i> Due
+            FILTER BY: <i class="bi bi-calendar-range px-2"></i> Due
             date <i class="bi bi-tags-fill px-2"></i> Tags
         </div>
         <div>
@@ -97,103 +101,99 @@
                     <input id="deadline" type="Date" name="Tdeadline1" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                 </div>
-
                 <div class="inputholder">
-
                 </div>
-
                 <button name="submit" type="submit" class="btn btn-primary">Add New Task</button>
             </form>
         </div>
         <!-- ***********************Pop up Form*************************** -->
     </div>
-    <div class="container  flex-xs-column d-flex justify-content-around ">
-        <div class="bg-warning to-do ">
-            <div class="d-flex  justify-content-between ">
-                <h5 class="bg-danger m-2">TO DO</h5>
-                <p id="count" class="m-2  text-white">Number</p>
-                <i class="bi bi-three-dots m-2"></i>
-            </div>
-
-            <?php
-                foreach($data as $d){
-                // var_dump($d);
-                if($d['4'] == 'TO DO'){
-                
-            ?>
-            <div class="task" id="<?= $d['id']; ?>">
-                <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
-                <p data-target="desc"><?= $d['description'] ?></p>
-                <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
-                <div class="d-flex justify-content-between">
-                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
-                            class="bi bi-pencil-square d-block"></i></a>
-                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
-                            class="bi bi-trash d-block"></i> </a>
+    <div class="container con-tasks   d-flex  justify-content-around">
+        <div class="row gap-2 justify-content-center">
+            <div class="col-12  bg-warning to-do ">
+                <div class="d-flex  justify-content-between ">
+                    <h5 class="bg-danger m-2">TO DO</h5>
+                    <p id="count" class="m-2  text-white">Number</p>
+                    <i class="bi bi-three-dots m-2"></i>
                 </div>
-            </div>
-            <?php
-                }
-            };
-            ?>
-            <!-- ****************dynamic**************** -->
-        </div>
-        <div class="bg-primary doing ">
-            <div class="d-flex  justify-content-between ">
-                <h5  class="bg-danger m-2">In Progress</h5>
-                <p id="count" class="m-2  text-white">Number</p>
-                <i class="bi bi-three-dots m-2"></i>
-            </div>
-
-            <?php
-                foreach($data as $d){
-                if($d['4'] == 'In Progress'){
-            ?>
-            <div class="task" id="<?= $d['id']; ?>">
-
-                <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
-                <p data-target="desc"><?= $d['description'] ?></p>
-                <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
-                <div class="d-flex justify-content-between">
-                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
-                            class="bi bi-pencil-square d-block"></i></a>
-                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
-                            class="bi bi-trash d-block"></i> </a>
+                <?php
+                    foreach($data as $d){
+                    // var_dump($d);
+                    if($d['4'] == 'TO DO'){
+            
+                ?>
+                <div class="task" id="<?= $d['id']; ?>">
+                    <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
+                    <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
+                    <p data-target="desc"><?= $d['description'] ?></p>
+                    <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
+                    <div class="d-flex justify-content-between">
+                        <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
+                                class="bi bi-pencil-square d-block"></i></a>
+                        <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
+                                class="bi bi-trash d-block"></i> </a>
+                    </div>
                 </div>
+                <?php
+                    }
+                };
+                ?>
+                <!-- ****************dynamic**************** -->
             </div>
-            <?php
-                }
-            };
-            ?>
-        </div>
-        <div class="bg-success  done ">
-            <div class="d-flex  justify-content-between ">
-                <h5 class="bg-danger m-2">Done</h5>
-                <p id="count" class="m-2  text-white">Number</p>
-                <i class="bi bi-three-dots m-2"></i>
-            </div>
-            <?php
-                foreach($data as $d){
-                if($d['4'] == 'Done'){
-            ?>
-            <div class="task" id="<?= $d['id']; ?>">
-                <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
-                <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
-                <p data-target="desc"><?= $d['description'] ?></p>
-                <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
-                <div class="d-flex justify-content-between">
-                    <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
-                            class="bi bi-pencil-square d-block"></i></a>
-                    <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
-                            class="bi bi-trash d-block"></i> </a>
+            <div class="col-12  bg-primary doing ">
+                <div class="d-flex  justify-content-between ">
+                    <h5  class="bg-danger m-2">In Progress</h5>
+                    <p id="count" class="m-2  text-white">Number</p>
+                    <i class="bi bi-three-dots m-2"></i>
                 </div>
+                <?php
+                    foreach($data as $d){
+                    if($d['4'] == 'In Progress'){
+                ?>
+                <div class="task" id="<?= $d['id']; ?>">
+                    <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
+                    <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
+                    <p data-target="desc"><?= $d['description'] ?></p>
+                    <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
+                    <div class="d-flex justify-content-between">
+                        <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
+                                class="bi bi-pencil-square d-block"></i></a>
+                        <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
+                                class="bi bi-trash d-block"></i> </a>
+                    </div>
+                </div>
+                <?php
+                    }
+                };
+                ?>
             </div>
-            <?php
-                }
-            };
-            ?>
+            <div class="col-12  bg-success  done ">
+                <div class="d-flex  justify-content-between ">
+                    <h5 class="bg-danger m-2">Done</h5>
+                    <p id="count" class="m-2  text-white">Number</p>
+                    <i class="bi bi-three-dots m-2"></i>
+                </div>
+                <?php
+                    foreach($data as $d){
+                    if($d['4'] == 'Done'){
+                ?>
+                <div class="task" id="<?= $d['id']; ?>">
+                    <p style="display:none;" data-target="status"><?= $d['4']; ?></p>
+                    <h5 class="Names" data-target="name"><?= $d['name'] ?></h5>
+                    <p data-target="desc"><?= $d['description'] ?></p>
+                    <p data-target="dead" class="text-danger"><?= $d['deadline'] ?></p>
+                    <div class="d-flex justify-content-between">
+                        <a href="#" id="upp" data-role="update" data-id="<?= $d['id']; ?>"><i
+                                class="bi bi-pencil-square d-block"></i></a>
+                        <a href="http://localhost/TaskBoard/public/Tasks/delete/<?= $d['id']; ?>"> <i
+                                class="bi bi-trash d-block"></i> </a>
+                    </div>
+                </div>
+                <?php
+                    }
+                };
+                ?>
+            </div>
         </div>
     </div>
     <!-- ***********************Pop up update*************************** -->
