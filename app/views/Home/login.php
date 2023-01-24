@@ -1,3 +1,8 @@
+<?php
+    if(isset($_SESSION['login']) == true){
+        header('Location:http://localhost/TaskBoard/public/Tasks/fetch');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,16 +56,18 @@
                                         ?>
                                         <div class="form-outline mb-4 text-start">
                                             <label class="form-label" for="form2Example17">Email address</label>
-                                            <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
+                                            <span class="text-danger" id="warning2"></span>
+                                            <input type="email" id="emailform" class="form-control form-control-lg" name="email" />
                                         </div>
 
                                         <div class="form-outline mb-4 text-start">
                                             <label class="form-label" for="form2Example27">Password</label>
-                                            <input type="password" id="form2Example27" class="form-control form-control-lg" name="password"/>
+                                            <span class="text-danger" id="warning3"></span>
+                                            <input type="password" id="passwordform" class="form-control form-control-lg" name="password"/>
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-primary btn-lg btn-block" name="login" type="submit">Login</button>
+                                            <button class="btn btn-primary btn-lg btn-block" id="loginbtn" name="login" type="submit">Login</button>
                                         </div>
                                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
                                                 href="http://localhost/TaskBoard/public/User/sign" style="color: #393f81;">Register here</a></p>                                        
@@ -74,6 +81,6 @@
         </div>
     </section>
     <!-- ******************************end content****************** -->
-    <script src="http://localhost/TaskBoard/public/JS/validation.js"></script>
+    <script src="http://localhost/TaskBoard/public/JS/validatelogin.js"></script>
 </body>
 </html>

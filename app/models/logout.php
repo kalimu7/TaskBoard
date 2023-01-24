@@ -6,7 +6,7 @@
         $_SESSION = [];
         session_unset();
         session_destroy();
-        header("Location:http://localhost/TaskBoard/public/user/sign");
+        // header("Location:http://localhost/TaskBoard/public/user/sign");
         }
         
     }

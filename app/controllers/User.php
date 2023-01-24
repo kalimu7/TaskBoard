@@ -45,7 +45,12 @@
                     exit;
                 }
                 $data = $model->signin($email);
-                if(password_verify($password,$data->password)){
+                if(!$data){
+                    $msg = 'there is something doesnt match';
+                    $this->view('Home/login',['msg' => $msg]);
+                    exit;
+                }
+                if(password_verify($password,$data->password) == true){
                     $_SESSION['login'] = true;
                     $_SESSION['id_user'] = $data->id;
                     $_SESSION['name'] = $data->name;
@@ -60,7 +65,7 @@
         public function out(){
             $model = $this->model('logout');
             $model->Logout();
-            header('Location:http://localhost/TaskBoard/public/user/sign');
+            header('Location:http://localhost/TaskBoard/public/User/login');
         }
         
     }

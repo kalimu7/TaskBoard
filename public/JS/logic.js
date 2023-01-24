@@ -141,7 +141,7 @@ task.addEventListener('input', () => {
             </div>
             <div class="mb-1">
                 <label for="exampleInputEmail1" class="form-label">Deadline :${j}</label>
-                <input id="deadline" type="Date" name="Tdeadline${j}" class="form-control" id="exampleInputEmail1"
+                <input id="deadline" type="Date"  name="Tdeadline${j}" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp">
             </div>
             `; 

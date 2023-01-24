@@ -1,23 +1,8 @@
-// ********Name validation is done*****************
-const  btnsp = document.querySelector('#signupbtn');
-const nameform = document.querySelector('#nameform');
+const  btnsp = document.querySelector('#loginbtn');
 const emailform = document.querySelector('#emailform');
 const passwordform = document.querySelector('#passwordform');
-const warningname = document.querySelector('#warning');
 const warningemail = document.querySelector('#warning2');
 const warningpassword = document.querySelector('#warning3');
-nameform.addEventListener('input',(e)=>{
-    let value = e.target.value;
-    let pattern = /^[a-z ,.'-]+$/i;
-    let valid = pattern.test(value);
-    if(valid || value==""){
-        btnsp.disabled = false;
-        warningname.innerHTML = ""
-    }else{
-        warningname.innerHTML = "please enter a valid name";
-        btnsp.disabled = true;
-    }
-});
 // ********email validation*****************
 emailform.addEventListener('input',(e)=>{
     let value = e.target.value;
